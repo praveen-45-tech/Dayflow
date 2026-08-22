@@ -1,0 +1,70 @@
+.auth-shell {
+  min-height: 100vh; display: grid; grid-template-columns: 1.05fr 1fr;
+}
+@media (max-width: 900px) { .auth-shell { grid-template-columns: 1fr; } .auth-visual { display: none; } }
+
+/* LEFT: brand / visual */
+.auth-visual {
+  background: radial-gradient(ellipse at 20% 0%, #1c2350 0%, var(--ink) 55%), var(--ink);
+  color: var(--text-on-ink); position: relative; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 48px 56px;
+}
+.auth-visual::before {
+  content: ''; position: absolute; width: 700px; height: 700px; border-radius: 50%;
+  background: radial-gradient(circle, var(--indigo-glow), transparent 70%);
+  top: -320px; right: -280px; opacity: .8; animation: drift 12s ease-in-out infinite alternate;
+}
+@keyframes drift { from { transform: translate(0,0); } to { transform: translate(-30px, 40px); } }
+
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 20px; position: relative; z-index: 2;}
+.brand .logo-mark { width: 34px; height: 34px; }
+
+.auth-visual-copy { position: relative; z-index: 2; max-width: 460px; }
+.auth-visual-copy .eyebrow {
+  font-family: var(--font-mono); font-size: 12px; color: var(--amber); letter-spacing: 0.08em;
+  text-transform: uppercase; margin-bottom: 18px; display: block;
+}
+.auth-visual-copy h1 { font-size: 40px; line-height: 1.15; font-weight: 600; margin-bottom: 14px; }
+.auth-visual-copy p { color: var(--text-on-ink-dim); font-size: 15.5px; line-height: 1.6; }
+
+.dayarc-wrap { position: relative; z-index: 2; margin: 8px 0 4px; }
+.dayarc-caption { display: flex; justify-content: space-between; margin-top: 10px; font-family: var(--font-mono); font-size: 11.5px; color: var(--text-on-ink-dim); }
+.dayarc-caption .now { color: var(--amber); font-weight: 600; }
+
+.auth-visual-foot { position: relative; z-index: 2; display: flex; gap: 28px; font-family: var(--font-mono); font-size: 12px; color: var(--text-on-ink-dim); }
+.auth-visual-foot b { color: var(--text-on-ink); display: block; font-family: var(--font-display); font-size: 20px; font-weight: 600; }
+
+/* RIGHT: form */
+.auth-form-side { display: flex; align-items: center; justify-content: center; padding: 40px 24px; background: var(--cloud); }
+.auth-card { width: 100%; max-width: 400px; }
+.auth-card .switcher {
+  display: flex; background: var(--cloud-dim); border-radius: var(--r-pill); padding: 4px; margin-bottom: 32px;
+}
+.auth-card .switcher button {
+  flex: 1; border: none; background: transparent; padding: 10px; border-radius: var(--r-pill);
+  font-weight: 600; font-size: 13.5px; color: var(--text-2); transition: all .25s var(--ease);
+}
+.auth-card .switcher button.active { background: var(--paper); color: var(--ink); box-shadow: var(--shadow-1); }
+.auth-card h2 { font-size: 25px; margin-bottom: 6px; }
+.auth-card .sub { color: var(--text-2); font-size: 14px; margin-bottom: 28px; display: block; }
+
+.role-toggle { display: flex; gap: 10px; margin-bottom: 18px; }
+.role-toggle .opt {
+  flex: 1; border: 1.5px solid var(--cloud-dim); border-radius: var(--r-sm); padding: 12px; text-align: center;
+  font-size: 13px; font-weight: 600; color: var(--text-2); transition: all .2s var(--ease); background: var(--paper);
+}
+.role-toggle .opt.active { border-color: var(--indigo); color: var(--indigo); background: #EDEEFD; }
+.role-toggle input { display: none; }
+
+.demo-hint {
+  margin-top: 22px; font-size: 12.5px; color: var(--text-3); background: var(--paper);
+  border: 1px dashed var(--cloud-dim); border-radius: var(--r-sm); padding: 12px 14px; line-height: 1.6;
+}
+.demo-hint b { color: var(--text-2); font-family: var(--font-mono); }
+
+.pw-rules { display: flex; flex-wrap: wrap; gap: 6px; margin: -10px 0 18px; }
+.pw-rules span { font-size: 10.5px; padding: 4px 9px; border-radius: var(--r-pill); background: var(--cloud-dim); color: var(--text-3); font-weight: 600; transition: all .2s; }
+.pw-rules span.ok { background: var(--teal-soft); color: var(--teal); }
+
+.form-fade { animation: rise-in .4s var(--ease); }

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dayflow — Sign in</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+<div class="auth-shell">
+  <!-- LEFT VISUAL -->
+  <div class="auth-visual">
+    <div class="brand">
+      <svg class="logo-mark" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="16" stroke="#FFB238" stroke-width="2"/><path d="M17 7v10l7 4" stroke="#FFB238" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Dayflow
+    </div>
+
+    <div class="auth-visual-copy">
+      <span class="eyebrow">Human Resource Management</span>
+      <h1>Every workday,<br>perfectly aligned.</h1>
+      <p>One system for attendance, leave, payroll and approvals — built so admins and employees never have to chase each other for status.</p>
+
+      <div class="dayarc-wrap" id="dayarc-hero"></div>
+      <div class="dayarc-caption">
+        <span>6 AM</span>
+        <span class="now" id="now-label mono">● live</span>
+        <span>10 PM</span>
+      </div>
+    </div>
+
+    <div class="auth-visual-foot">
+      <div><b id="stat-employees">6</b>Employees onboard</div>
+      <div><b id="stat-uptime">99.9%</b>Attendance synced</div>
+      <div><b id="stat-approvals">2</b>Pending approvals</div>
+    </div>
+  </div>
+
+  <!-- RIGHT FORM -->
+  <div class="auth-form-side">
+    <div class="auth-card">
+      <div class="switcher">
+        <button id="tab-signin" class="active">Sign in</button>
+        <button id="tab-signup">Sign up</button>
+      </div>
+
+      <!-- SIGN IN -->
+      <div id="panel-signin" class="form-fade">
+        <h2>Welcome back</h2>
+        <span class="sub">Sign in to your Dayflow workspace.</span>
+        <form id="form-signin">
+          <div class="field" id="si-email-field">
+            <label>Email</label>
+            <input type="email" id="si-email" placeholder="you@dayflow.io" autocomplete="username" required>
+          </div>
+          <div class="field" id="si-password-field">
+            <label>Password</label>
+            <input type="password" id="si-password" placeholder="••••••••" autocomplete="current-password" required>
+            <span class="error-text" id="si-error" style="display:none;">Incorrect email or password. Try again.</span>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Sign in</button>
+        </form>
+        <div class="demo-hint">
+          <b>Demo credentials</b> — Admin: <b>ananya.hr@dayflow.io</b> / <b>Admin@123</b><br>
+          Employee: <b>rahul.mehta@dayflow.io</b> / <b>Employee@123</b>
+        </div>
+      </div>
+
+      <!-- SIGN UP -->
+      <div id="panel-signup" class="form-fade" style="display:none;">
+        <h2>Create your account</h2>
+        <span class="sub">Join your organization's workspace on Dayflow.</span>
+        <form id="form-signup">
+          <div class="role-toggle">
+            <label class="opt active" id="role-employee-label">
+              <input type="radio" name="role" value="employee" checked> Employee
+            </label>
+            <label class="opt" id="role-admin-label">
+              <input type="radio" name="role" value="admin"> HR / Admin
+            </label>
+          </div>
+          <div class="field">
+            <label>Full name</label>
+            <input type="text" id="su-name" placeholder="Jordan Lee" required>
+          </div>
+          <div class="field">
+            <label>Employee ID</label>
+            <input type="text" id="su-empid" placeholder="DF-2050" required>
+          </div>
+          <div class="field" id="su-email-field">
+            <label>Email</label>
+            <input type="email" id="su-email" placeholder="you@dayflow.io" required>
+            <span class="error-text" id="su-email-error" style="display:none;">An account already exists with this email.</span>
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" id="su-password" placeholder="Create a password" required>
+            <div class="pw-rules">
+              <span id="rule-len">8+ characters</span>
+              <span id="rule-upper">1 uppercase</span>
+              <span id="rule-num">1 number</span>
+              <span id="rule-special">1 symbol</span>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Create account</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="toast-root"></div>
+
+<script src="js/store.js"></script>
+<script src="js/dayarc.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
